@@ -1,0 +1,104 @@
+div.search {
+	text-align						: center;
+	padding							: 0;
+}
+
+#top > *, #top .search * {
+	float	: left;
+}
+
+.product-wrapper {
+	position						: relative;
+	display							: inline-block;
+	width							: 145px;
+	height							: 210px;
+	padding							: 5px 0 0 0;
+	margin							: 5px 0 0 5px;
+	overflow						: hidden;
+	border							: 1px solid #eee;
+	vertical-align					: top;
+	text-align						: left;
+	background-color				: #fff;
+}
+
+.product-grid-image {
+	width							: 135px;
+	height							: 135px;
+	margin-left						: 6px
+}
+.product-grid-image.preload {
+	width							: auto;
+	height							: auto;
+	margin							: 55px;
+}
+
+.polaroid-footer {
+	background-color				: #eee;
+	position						: relative;
+	height							: 70px;
+	padding							: 5px;
+}
+
+.product-name,
+.product-list-price {
+	font-size						: 0.8em;
+	color							: #111;
+}
+.product-list-price {
+	font-weight						: bold;
+	position						: absolute;
+	bottom							: 15px;
+	right							: 5px;
+}
+
+.product-rating {
+	position						: absolute;
+	bottom							: 15px;
+	left							: 5px;
+}
+
+.product-rating .stars { margin-top: 11px }
+.product-rating .stars,
+.product-rating .stars span {
+	display: block;
+	width: 55px;
+	height: 11px;
+	overflow: hidden;
+	text-indent: -9999em;
+	background: url("/img/common/icon-star-sm.png") 0 -11px repeat-x;
+}
+.product-rating .stars span { background-position: 0 0 }
+
+
+/*******************************************************************************
+ ****	REFINEMENTS															****
+ *******************************************************************************/
+.product-refinements {
+	border							: 1px solid #eee;
+	margin							: 5px;
+	position						: relative;
+	background-color				: #eee;
+}
+.product-refinements > ul > li {
+	cursor:pointer;
+	display							: inline-block;
+	height							: 40px;
+	line-height						: 40px;
+	width							: 32%;
+	text-align						: center;
+}
+.scrolled .product-refinements{
+	position						: fixed;
+	background-color				: #ddd;
+	top								: 60px;
+	margin							: 0;
+	width							: 100%;
+	min-height						: 40px;
+	z-index							: 999;
+	
+	opacity							: 0.9;
+}
+
+.refinements-wrapper {
+	display							: none;
+}

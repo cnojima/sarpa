@@ -1,0 +1,31 @@
+
+{{#if isProduction}}
+	<script type="text/javascript" src="js/all.js"></script>
+{{else}}
+	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	<script src="/js/support/jstorage.min.js"></script>
+	<script src="/js/support/handlebars-1.0.rc.1.min.js"></script>
+	<script src="/js/SM.js"></script>
+	<script src="/js/SM.category.js"></script>
+	<script src="/js/SM.search.js"></script>
+	
+	<script src="/js/m/SM.model.Basket.js"></script>
+	<script src="/js/c/SM.controller.Basket.js"></script>
+
+	<!-- START: DEV ONLY -->
+	<!-- 
+		<script src="/socket.io/socket.io.js"></script>
+ -->		<script>
+		/*
+			var socket = io.connect('/');
+			socket.on('news', function (data) {
+				console.log(data);
+				socket.emit('my other event', { my: 'data' });
+			});
+		*/
+		</script>
+	<!-- END: DEV ONLY -->
+{{/if}}
+
+
+<iframe onload="SM.templatesLoaded();" name="hbs_templates" id="hbs_templates" src="/rest/hbs?templates=category/menu.html,common/productGrid.html,search/grid.html,common/productDetail.html" style="display:none;"></iframe>

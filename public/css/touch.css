@@ -1,0 +1,53 @@
+/*
+@media only screen and (max-width: 1024px), only screen and (max-device-width: 1024px) {
+	*/
+
+portals,
+section {
+	display							: block;
+	position						: relative;
+	width							: 100%;
+}
+
+portals {
+	min-height						: 10px;
+}
+
+@media only screen and (max-width: 768px), only screen and (max-device-width: 768px)
+	only screen and (min-width: 479px), only screen and (min-device-width: 479px)
+{
+	/*.categories.shop-landing,
+	.homepage .sprites,
+	.tablet-only */
+	section.target1, 
+	section.target2 {
+		width						: 48%;
+		float						: right;
+	}
+	
+	section.target1 {
+		float						: left;
+	}
+	
+	portals img {
+		max-width					: 210px;
+	}
+}
+
+
+
+
+@media only screen and (max-width: 320px), only screen and (max-device-width: 320px)
+{
+	.homepage .sprites {
+		padding						: 0;
+	}
+	section {
+		float						: none !important;
+		width						: 100% !important;
+	}
+	portals img {
+		max-width					: 210px;
+		margin						: 0 auto;
+	}
+}

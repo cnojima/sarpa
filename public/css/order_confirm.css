@@ -1,0 +1,128 @@
+/* ORDER CONFIRM CSS */
+
+.checkout .confirmation { max-width:400px; margin:8px auto; padding:0 3%; padding-bottom:8px; text-align:center; }
+
+.beauty-insider { background:#FCEAEA; padding:5px; }
+.beauty-insider > h3 {
+	text-transform:uppercase;
+	font-size:12px;
+	background-color:#f67c8c;
+	color: #f67c8c;
+	
+	height: 11px;
+	
+	margin: 20px 0px 05px;
+}
+.beauty-insider > h3.exclusives {
+	background-color: #ed3549;
+	color: #ed3549;
+}
+.beauty-insider h3 .title {
+	background-color: #FFF;
+	padding-right:5px;
+	position:relative;
+	top: -1px;
+}
+
+/* @end */
+
+img.title {
+	margin: 5px 0px;
+}
+.beauty-insider .bi-intro h2 {
+	color:#FC5167;
+}.beauty-insider .bi-intro p {
+	color:#666;
+}
+.beauty-insider .pink.beauty-insider {
+	margin: 10px 0;
+	padding: 10px;
+	background-color: #fceaea;
+}
+
+/* BI POINTS BOX */
+
+.bi-info.bi-bank { text-align:center; margin:20px auto; padding:0px 3%; max-width:400px; }
+.bi-info.bi-bank a { text-decoration:underline; font-size:10px; text-transform:uppercase; }
+.bi-info.bi-bank .bi-hd { background-image:url(/img/bi/BI_LOGO.png); background-position:50% top; width:100%; height:14px; background-repeat:no-repeat; }
+.bi-info.bi-bank .vib-hd { background-image:url(/img/bi/VIB_BI_LOGO.png); background-position:50% top; width:100%; padding-top:48px; background-repeat:no-repeat; }
+.bi-points-box { background-color:#EEE; padding:12px; margin:8px 0; text-transform:uppercase; text-align:left; }
+.bi-points-box h4 { margin-bottom:6px; font-size:12px; }
+.bi-points-box h4 span { display:none; }
+.bi-points-box li { border-top:1px solid #CCC; padding:6px 0; }
+.bi-points-box .pts-total { border-color:black; padding-bottom:0px; font-weight:bold; }
+.bi-points-box .pts-amount { float:right; }
+.bi-points-box .pts-total .pts-amount { color:#C00; }
+.bi-points-box li:first-child { border-top:none; }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) 
+{
+	.bi-info.bi-bank .bi-hd { background-image:url(/img/bi/BI_LOGO@2x.png); background-size:188px; }
+	.bi-info.bi-bank .vib-hd { background-image:url(/img/bi/VIB_BI_LOGO@2x.png); background-size:140px; }
+}
+
+.beauty-insider li.redeemed { 
+	border-bottom:1px solid #ccc; 
+}
+/* @group Beauty Insider Join
+ */
+.bi-info.bi-join { margin:10px; }
+
+.vib-state a { white-space:nowrap; }
+ 
+.beauty-insider .bi-info.bi-join-content {
+	overflow:hidden;
+	margin: 10px 0px;
+	padding: 10px;
+}
+.beauty-insider .bi-info.bi-join-content {
+	background: #fceaea url(/img/bi/bg-beauty-insider-join.png) no-repeat right 10px;
+}
+.beauty-insider .bi-info.bi-join-content h2 {
+	margin-top: 5px;}
+.beauty-insider .bi-info.bi-join-content h2 img {
+	max-width:230px;
+}
+.beauty-insider .bi-info.bi-join-content h3 {
+	color: #ed3549;
+	font-size:12px;
+	font-weight:normal;
+	margin-bottom:7px;
+}
+
+.beauty-insider .bi-info.bi-join-content fieldset {
+	border:0;
+}
+
+.beauty-insider .bi-info.bi-join-content select {
+	width:auto;
+	margin:5px;
+}
+.beauty-insider .bi-info.bi-join-content select#birth-year {
+	width:70px;
+}
+.beauty-insider .bi-info.bi-join-content input#tc-agree {
+	margin:10px 5px 10px 0;
+}
+.beauty-insider .bi-info.bi-join-content button.btn-bi {
+	background-color: #ff5562;
+}
+
+
+
+.product-item {
+	display:block;
+	border-bottom:1px solid #ccc;
+	padding:5px;
+	margin:5px 0;
+	font-size:12px;
+}
+.product-item .image {
+	float:left;
+	padding:0 20px 0 0;
+}
+.beauty-insider > a { display:none; }
+
+p { font-size:12px; }
+
+#registration .auto-msg { margin-top:10px; }

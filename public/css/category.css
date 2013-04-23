@@ -1,0 +1,14 @@
+ul.navigation li {
+	cursor							: pointer;
+}
+
+.breadcrumbswrapper {
+    width							: 100%;
+}
+
+.breadcrumb {
+    border							: none;
+}
+.breadcrumb li:last-child a {
+    color							: #CC0000;
+}

@@ -1,0 +1,5 @@
+.git
+.DS_Store
+.project
+*.sublime*
+node_modules/*

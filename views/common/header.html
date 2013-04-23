@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<title>
+		{{title}} [ {{mode}} mode ]
+	</title>
+{{#if isProduction}}
+	<link rel="stylesheet" type="text/css" href="/css/sephora.css" />
+{{else}}
+
+<!-- 	<link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="/css/foundation.css" />
+	<link rel="stylesheet" type="text/css" href="http://m.sephora.com/css/main.v1.css?versBB=2"/>
+	<link rel="stylesheet" type="text/css" href="http://m.sephora.com/css/home.v2.css?versBB=2"/>
+	<link rel="stylesheet" type="text/css" href="http://m.sephora.com/css/shop/shop.css?versBB=2"/>
+	<link rel="stylesheet" type="text/css" href="http://m.sephora.com/css/product/product.css?versBB=2"/>
+ -->
+	<link rel="stylesheet" type="text/css" href="/css/tom_base.css" />
+	<link rel="stylesheet" type="text/css" href="/css/tom.css" />
+ 	<link rel="stylesheet" type="text/css" href="/css/category.css" />
+	<link rel="stylesheet" type="text/css" href="/css/search.css" />
+	<link rel="stylesheet" type="text/css" href="/css/product.css" />
+	<link rel="stylesheet" type="text/css" href="/css/view_cart.css" />
+	<link rel="stylesheet" type="text/css" href="/css/touch.css" />
+{{/if}}
+</head>
+<body onload="setTimeout(function(){window.scrollTo(0,1);}, 100);">
+
+<div id="mWrapper">
+
+	<!-- start: HEADER -->
+	<div id="mobileHeader">
+		<ul class="top-nav" role="navigation">
+			<li class="l-one" id="left_nav"><a class="header-back" href="javascript:;"><span class="icons back"></span></a> </li>
+			<li class="l-two" id="sephora"><a href="javascript:;" class="logo">
+				checkout
+			</li>
+			<li class="l-one" id="right_nav"><a class="header-basket" href="javascript:;"><span class="icons basket"></span></a> </li>
+		</ul>
+	</div>
+

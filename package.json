@@ -1,0 +1,29 @@
+{
+	"name"				: "sarpa",
+	"version"			: "0.0.1",
+	"author"			: "Chris Nojima <chris.nojima@sephora.com>",
+	"description"		: "SARPA - Sephora Advanced Research Project Arm.  Proof of concept of rapid-prototyping, rapid-iteration UI frameworks",
+	"contributors" : [
+		{
+			"name"		: "Chris Nojima",
+			"email"		: "chris.nojima@sephora.com"
+		}	
+	],
+	"private"			: true,
+	"scripts" : {
+		"start1"		: "nodemon --debug -e js,css,html app.js && node-inspector &",
+		"start"			: "PORT=4000 nodemon -e js,css,html app.js"
+	},
+	"dependencies": {
+		"express"		: "3.1.0",
+		"socket.io"		: "*",
+		"consolidate"	: "*",
+		"less"			: "*",
+		"handlebars"	: "*",
+		"mongodb"		: "*",
+		"nodemon"		: "*"
+	},
+	"engines" : {
+		"node"			: ">=0.8"
+	}
+}
