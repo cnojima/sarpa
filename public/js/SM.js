@@ -62,6 +62,22 @@ var SM = (function() {
 	function getUserId() {
 		return generateGUID();
 	}
+
+
+	function fakeSignIn() {
+		$.ajax({
+			url : '/rest/my/signin',
+			success : function(res) {
+				if(res.errorMessages && res.errorMessages.length > 0) {
+					alert(res.errorMessages[0]);
+				} else {
+					alert('signed in now');
+				}
+			},
+			error : SM.handleAsyncError
+		});
+	}
+
 	
 	/***************************************************************************
 	 **** 	bootstrap														****
@@ -81,13 +97,17 @@ var SM = (function() {
 	 	}
 	});
 	
+
 	/***************************************************************************
-	 **** 	bootstrap														****
+	 **** 	public API														****
 	 ***************************************************************************/
 	
 	
 	return {
 		deHtmlEntitize			: deHtmlEntitize,
+
+		fakeSignIn				: fakeSignIn,
+
 		getUserId				: getUserId,
 		namespace				: namespace,
 		templates				: null,

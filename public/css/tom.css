@@ -1,17 +1,47 @@
+ul, li {
+	list-style-type: none;
+}
+
 
 /*******************************************************************************
  ****	HEADER																****
  *******************************************************************************/
-#mobileHeader {
-	height						: 36px;
+header {
+	height						: 40px;
 	position					: fixed;
-	z-index						: 5;
+	z-index						: 10000;
 	top							: 0;
 	left						: 0;
 	right						: 0;
-	padding						: 5px 10px;
+	padding						: 3px;
+	
 	background-color			: #fff;
+	opacity						: 0.8;
+	line-height: 25px;
 }
+
+header button {
+	text-indent: -10000px;
+	border:none;
+	background-color: transparent;
+}
+button.btn-show-text {
+	text-indent: 0px;
+}
+header .logo {
+	background 					: transparent url(/img/header/logo-white.png) scroll no-repeat center center;
+	width: 100%;
+}
+header grid:last-child {
+	text-align: right;
+}
+
+header h1 {
+	margin: 0;
+	padding : 0;
+	text-align: center;
+}
+
 
 #sephora {
 	text-align: center;
@@ -26,42 +56,12 @@
 	text-decoration: none;
 }
 
-#mobileHeader .icons.logo {
-	background : transparent url(../img/header/logo.png) scroll no-repeat 0 0;
-	height						: 22px;
-	width						: 173px;
-	margin						: 0 auto;
-	display						: block;
-}
-
-#mobileHeader ul,
-#mobileHeader li {
-	float						: left;
-}
-#mobileHeader ul {
-	width						: 100%;
-}
-#mobileHeader li {
-	width						: 18%;
-	min-width					: 22px;
-}
-
-#mobileHeader li:nth-child(2) {
-	width						: 59%;
-	min-width					: 180px;
-}
-
-#mobileHeader li:last-child {
-	float						: right;
-	text-align					: right;
-}
-
 .icons {
 	background	: transparent url(../img/icons_v2_sprite.jpg) scroll no-repeat 0 0;
 	width		: 22px;
 	height		: 25px;
-	cursor		: pointer;
-	display		: inline-block;
+	/*cursor		: pointer;*/
+	/*display		: inline-block;*/
 }
 .icons.left-nav-icon {
 	background-position		: -12px -15px;
@@ -80,6 +80,10 @@
 /*******************************************************************************
  ****	GLOBAL																****
  *******************************************************************************/
+.clear {
+	clear : both;
+}
+
 .x-panel {
 	position: absolute;
 	width: 100%;
@@ -87,23 +91,50 @@
 .fixed-buffer {
 	position: absolute;
 	padding: 0 10px 10px 10px;
-	top: 48px;
+	top: 78px; /*48px;*/
 	width: 100%;
 	/*margin-top: 88px;*/
+}
+.fixed-buffer-small {
+	position: absolute;
+	padding: 0 10px 10px 10px;
+	top: 48px; /*48px;*/
+	width: 100%;
+	/*margin-top: 88px;*/
+}
+.fixed-buffer-bottom {
+	width: 100%;
+	height: 73px;
 }
 
 .show-total .fixed-buffer {
 	top: 5.7em;
 	padding-bottom: 6em;
 }
+.rounded-wrapper {
+	padding: 10px;
+}
+.rounded {
+	border: 1px solid #ccc;
+	border-radius : 3px;
+	-moz-border-radius : 3px;
+	-webkit-border-radius : 3px;
+}
+
+
+section.row {
+	vertical-align: middle;
+}
+
 
 /************
  ****	ORDER TOTAL
  *******/
  .order-total-wrapper {
- 	display: none;
+ 	/*display: none;*/
 	position: fixed;
 	top: 32px;
+	left: 0;
 	border-bottom: 0.2em solid #000;
 	width: 100%;
 	background-color: #fff;
@@ -117,22 +148,21 @@
 }
 .order-total-wrapper h1 {
 	margin: 0.17em 0;
-}
-
-.order-total {
 	text-transform: uppercase;
-	font-family: 'Avalon',Helvetica,Arial,sans-serif;
+	font-family: 'Avalon', Helvetica,Arial,sans-serif;
 	font-weight: 100;
+	font-size: 1.5em;
 	color: #c00;
 }
 
 
 .place-order {
-	display: none;
+	/*display: none;*/
 	background-color: #fff;
 	z-index: 2;
 	position: fixed;
 	bottom: 0;
+	left:0;
 	width: 100%;
 	border-top: 0.2em solid #000;
 	padding: 1em;
@@ -140,4 +170,206 @@
 }
 .show-total .place-order {
 	display: block;
+}
+
+
+
+/*******************************************************************************
+ ****	FORM FIELDS															****
+ *******************************************************************************/
+.required {
+	/*color: #c00;*/
+}
+
+.form-field {
+	margin-bottom: 10px;
+}
+
+.form-field,
+.form-field-grouping {
+	border: 1px solid #ccc;
+	padding: 20px 5px;
+}
+.form-field > div:first-child,
+.form-field-grouping > div:first-child {
+	font-family: 'Avalon',Helvetica,Arial,sans-serif;
+	/*font-weight: 100;*/
+	font-size: 14px;
+	color #111;
+	text-transform: uppercase;
+	vertical-align: middle;
+}
+
+.form-field > div.camel:first-child {
+	text-transform: none;
+}
+
+.form-field.has-child,
+.form-field-grouping.has-child {
+	cursor: pointer;
+	background: transparent url(../img/red-arrow-right.png) scroll no-repeat 99% 50%;
+}
+
+.required.form-field,
+.required.form-field-grouping,
+.required.input-row {
+	border-left: 1px solid #c00;
+	margin-left: -1px;
+}
+
+
+.form-field-grouping {
+	margin: 0;
+	padding: 10px 5px;
+	border-bottom: none;
+}
+.form-field-grouping:last-child {
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 1em;
+}
+
+.order-total.form-field-grouping {
+	border-bottom: 1px solid #ccc;
+	color: #c00;
+	font-weight: 700 !important;
+}
+
+/*******************************************************************************
+ ****	BEAUTY INSIDER														****
+ *******************************************************************************/
+.rewards-table {
+	padding : 0 10px;
+}
+.bi-wrapper .row > div {
+	min-height: 3em;
+	line-height: 3em;
+	padding :  0;
+	border-bottom: 0.1em solid #000;
+}
+.bi-wrapper .row > div:last-child {
+	text-align: right;
+}
+
+.bi-wrapper .balance {
+	text-transform: uppercase;
+	color: #c00;
+}
+.bi-wrapper .balance > div {
+	border: none;
+}
+
+.bi-wrapper .row.samples > div {
+	border :none;
+}
+
+.bi-offer {
+	height: 23em;
+	border: 0.2em solid #333;
+	text-align: center;
+	padding-top: 1em;
+	position: relative;
+}
+
+.row .bi-offer:last-child {
+	border-left:none;
+}
+.row:last-child .bi-offer {
+	border-top: none;
+}
+
+.bi-offer h3,
+.bi-offer h4 {
+	font-size: 100%;
+	margin: 0;
+	padding: 0;
+	line-height: 1em;
+}
+.bi-offer input {
+	position: absolute;
+	bottom: 1em;
+	width : 8em;
+	left : 50%;
+	margin-left: -4em;
+}
+/*******************************************************************************
+ ****	CONFIRMATION														****
+ *******************************************************************************/
+.thank-you {
+	margin : 3em 0;
+}
+#confirmation h1,
+#confirmation h2 {
+	text-transform: uppercase;
+	text-align: center;
+	font-family: 'Avalon', sans-serif;
+	font-weight: 100;
+	padding: 0;
+}
+#confirmation h1 {
+	font-size: 3em;
+	margin : 1em 0 0.2em 0;
+}
+
+#confirmation h1.bi-subheader {
+	font-size: 1.5em;
+	letter-spacing: 0.3em;
+	background-color: #000;
+	line-height: 2.5em;
+	color: #fff;
+	height: 2.5em;
+	text-align: center;
+}
+.bi-points-table {
+	padding : 0 1em;
+}
+.bi-points-table .row {
+	font-family: 'Avalon', sans-serif;
+	font-size: 1.2em;
+	line-height: 2em;
+	border-bottom: 1px solid #ccc;
+}
+.bi-points-table .row:last-child {
+	border: none;
+	color: #c00;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.bi-points-table .row .columns:last-child {
+	text-align: right;
+}
+.bi-points-table .row .columns {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+
+.bi.button {
+	margin: 2em 0;
+	width : 100%;
+	padding : 0.5em auto;
+	height: 3em;
+	line-height: 3em;
+	font-weight: bold;
+}
+.order-number-repeat {
+	line-height: 3em;
+	height: 3em;
+	border-top : 1px solid #ccc;
+	border-bottom : 1px solid #ccc;
+	font-family: 'Avalon', sans-serif;
+	text-align: center;
+	text-transform: uppercase;
+
+	margin-bottom: 1em;
+
+-moz-box-shadow: 0 0 5px #888;
+-webkit-box-shadow: 1px 0 5px#888;
+box-shadow: 0 0 5px #888;
+}
+
+/*******************************************************************************
+ ****	ADDRESSES															****
+ *******************************************************************************/
+header button {
+
 }

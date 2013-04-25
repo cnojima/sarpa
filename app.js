@@ -10,10 +10,9 @@ var config = require('./libs/config.js'),
 	cons = require('consolidate'),
 	path = require('path');
 
-var app = express();
-	
-var dbConn = require('./libs/db.js');
-var db;
+var app = express(),
+	dbConn = require('./libs/db.js'),
+	db;
 
 dbConn.open(function(err, database) {
 	if(err) {
@@ -26,13 +25,13 @@ dbConn.open(function(err, database) {
 
 function test(err, req, res, next) {
 	console.log('here');
-	
 	next();
 }
 
 
 app.configure(function(){
 	app.engine('html', cons[config.templateEngine]);
+	app.set('name', 'SARPA')
 	app.set('port', process.env.PORT || 3000);
 	app.set('view engine', 'html');
 	app.set('views', __dirname + '/views');
@@ -72,13 +71,10 @@ app.all('/checkout/:action', routes.my);
 
 app.get('/test', routes.test);
 
-
-//console.log(routes);
-//app.get('/users', user.list);
 global.app = app;
 
 var server = http.createServer(app).listen(app.get('port'), function(){
-	console.log("Express server listening on port " + app.get('port'));
+	console.log("Express server [ " + app.get('name') + " ] listening on port " + app.get('port'));
 });
 
 /*** socket server ***/

@@ -6,11 +6,13 @@ var http = require('http'),
 	proxyHost = 'localhost',
 	proxyPort = '55555',
 
-	restHost = 'dev.sephora.com',
+	// restHost = 'dev.sephora.com',
+	restHost = 'qa.sephora.com',
+	
 	restPort = '80',
 	restEndpoint = '/services/',
 	restEndpointRoot = ['http://' , restHost , ':' , restPort , restEndpoint ].join(''),
-	restTimeout = 50000;
+	restTimeout = 5000;
 
 var proxyConfig = {
 		method : 'GET',
@@ -44,12 +46,49 @@ function handleData(res, cb) {
 		}).on('end', doEnd);
 	} else {
 		console.log(res);
-		throw new Error('server returned error ' + res.statusCode);
+		//throw new Error('server returned error ' + res.statusCode);
+		dataChunked = '[]';
+		doEnd();
 	}
 }
 	
 	
 module.exports = {
+	/**
+	 * fake sign-in
+	 */
+	rest_fakeSignIn : function(cb) {
+		var handleResponse = function(res) {
+			function handleEnd(dataChunked) {
+				content = JSON.parse(dataChunked);
+				cb(content);
+			}
+			handleData(res, handleEnd);
+		}, cfg = {};
+
+		var payload = {
+			login				: 'chris.nojima@sephora.com',
+			password			: 'Smj0ln1r!a',
+			loginForCheckout	: true
+		}, pls = JSON.stringify(payload);
+
+		cfg.extend( (useProxy) ? proxyConfig : directConfig );
+		cfg.method = 'POST';
+		cfg.path += 'profile/login';
+		
+		cfg.headers = {
+			Host : restHost ,
+			//'Content-Type': 'application/x-www-form-urlencoded',
+			'Content-Type': 'application/json',
+			'Content-Length': pls.length
+		};
+
+		// setup connect for POST
+		var req = http.request(cfg, handleResponse);
+		req.write(pls);
+		req.end();
+	},
+
 	/**
 	 * retrieves child categories given a category ID.  if none passed, the rootCategories are retrieved
 	 * @param {String} catId	Parent category ID

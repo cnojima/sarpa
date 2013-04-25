@@ -1351,15 +1351,6 @@ div.my-basket h2.my-basket, .summary-info.password > h2 { display: block;  font-
 .summary-info.password dd, .summary-info.password dt { float:left; }
 .summary-info.password dt { font-weight:700; margin-right:5px;}
 /*mobileContent*/
-#mobileHeader {
-	float:none;
-}
-#mobileContent {
-	float:none;
-	width:auto;
-	overflow:auto;
-	margin:0;
-}
 /* @end */
 
 /**
@@ -1552,7 +1543,7 @@ div.product-item > div.product-info { float:left; padding-left:15px; }
 .checkout-module.disabled { display:none; }
 
 .checkout-module { border:1px solid #ccc; padding:10px; margin:5px 10px;}
-.checkout-module.current { border:0px solid black; padding:0px; margin:0px; }
+/*.checkout-module.current { border:0px solid black; padding:0px; margin:0px; }*/
 #order.checkout-module.current, #order-proxy { border:1px solid #ccc; padding:10px; margin:5px 10px;}
 
 .module-summary { margin:0;}

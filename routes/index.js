@@ -1,3 +1,4 @@
+exports.checkout = require('./checkout.js');
 exports.shop = require('./shop.js');
 exports.test = require('./test.js');
 exports.product = require('./product.js');

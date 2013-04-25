@@ -1,0 +1,35 @@
+<header class="row">
+{{#if selectAddress}}
+	{{#if addressEdit}}
+		<grid class="col-small-span-2">
+			<button class="btn btn-alt btn-mini btn-show-text cancel-button{{customLeftNav}}">Cancel</button>
+		</grid>
+		<grid class="col-small-span-8">
+			<h1 class="address-section-title">Edit Address</h1>
+		</grid>
+		<grid class="col-small-span-2">
+			<button class="btn btn-primary btn-mini btn-show-text done-addresses-button {{customRightNav}}">Done</button>
+		</grid>
+	{{else}}
+		<grid class="col-small-span-2">
+			<button class="btn btn-alt btn-mini btn-show-text cancel-button{{customLeftNav}}">Cancel</button>
+		</grid>
+		<grid class="col-small-span-8">
+			<h1 class="address-section-title">Ship to</h1>
+		</grid>
+		<grid class="col-small-span-2">
+			<button class="btn btn-primary btn-mini btn-show-text edit-addresses-button {{customRightNav}}">Edit</button>
+		</grid>
+	{{/if}}
+{{else}}
+	<grid class="col-small-span-2">
+		<button class=" icons left-nav-icon {{customLeftNav}}">nav</button>
+	</grid>
+	<grid class="col-small-span-8">
+		<button class="logo {{customCenterNav}}">Sephora</button>
+	</grid>
+	<grid class="col-small-span-2">
+		<button class="icons basket {{customRightNav}}">basket</button>
+	</grid>
+{{/if}}
+</header>

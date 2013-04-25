@@ -13,7 +13,9 @@ module.exports = function(req, res) {
 		var total = 0.0, ret = '';
 		
 		a.forEach(function(el) {
-			total += parseFloat(el.listPrice.replace('$', ''));
+			if(el.listPrice) {
+				total += parseFloat(el.listPrice.replace('$', ''));
+			}
 		});
 		
 		ret = new String(total);
@@ -43,27 +45,41 @@ module.exports = function(req, res) {
 		db.collection('shoppingBasket').find({
 			sessionId : req.cookies['connect.sess']
 		}).toArray(function(err, a) {
-			var basket = a[0].basket;
-			
-			api.rest_getSkus(basket, function(basketContents) {
-				console.log('@rest_getSkus callback');
+			if(!err) {
+				var basket = a[0].basket;
 				
-				var basket = {
-					contents : basketContents,
-					total : _getTotalFromBasket(basketContents)
-				};
-				
-				cb(basket);
-			});
+				api.rest_getSkus(basket, function(basketContents) {
+					console.log('@rest_getSkus callback');
+					
+					var basket = {
+						contents : basketContents,
+						total : _getTotalFromBasket(basketContents)
+					};
+					
+					cb(basket);
+				});
+			} else {
+				console.log(err);
+				cb(null);
+			}
 		});
 	
 	}
 
 
+	function _collectAddresses(cb) {
+		db.collection('addresses').find({
+			
+		});
+
+		cb();
+	}
+
 	var action = (req.params.action) ? req.params.action : 'account',
 		parsedUrl = url.parse(req.url, true),
 		restPath = parsedUrl.pathname.split('/');
 
+		console.log('@my - going to [ ' + action + ' ]');
 
 	switch(action) {
 		case 'confirmation':
@@ -93,6 +109,29 @@ module.exports = function(req, res) {
 					mode			: global.app.get('env'),
 					basket			: basket
 				});
+			});
+		break;
+
+		case 'address':
+			_collectAddresses(function(addresses) {
+				var template = 'my/address';
+
+				if(parsedUrl.query.subaction) {
+					template += '/' + parsedUrl.query.subaction;
+				}
+
+				res.render(template, {
+					title			: 'Addresses',
+					isProduction	: global.app.get('env') == 'production',
+					mode			: global.app.get('env'),
+
+					selectAddress	: true,
+
+					addressEdit		: parsedUrl.query.subaction == 'edit',
+
+					addresses 		: addresses
+				})
+
 			});
 		break;
 		

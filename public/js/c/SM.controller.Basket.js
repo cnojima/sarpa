@@ -29,11 +29,6 @@ SM.controller.Basket = (function() {
 		SM.search.getFocusProduct(basket.addItem);
 		alert('item added to basket - think fancy overlay or something');
 	});
-	$('.btn-checkout').live('click', function(e) {
-		
-	});
-	
-	
 	
 	$(window).bind('basketUpdated', updateBasketCount);
 

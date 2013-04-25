@@ -21,7 +21,8 @@
 		"less"			: "*",
 		"handlebars"	: "*",
 		"mongodb"		: "*",
-		"nodemon"		: "*"
+		"nodemon"		: "*",
+		"querystring"	: "*"
 	},
 	"engines" : {
 		"node"			: ">=0.8"

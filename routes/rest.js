@@ -97,6 +97,12 @@ module.exports = function(req, res) {
 						});
 						res.send('done');
 					break;
+
+					case 'signin':
+						api.rest_fakeSignIn(function(o) {
+							res.send(o);
+						});
+					break;
 				}
 			
 			break;
