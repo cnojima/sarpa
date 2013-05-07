@@ -27,7 +27,10 @@ var SM = (function() {
 		eval(x); // provides hbsTemplates hashmap
 		templates = hbsTemplates;
 
+		Handlebars.registerPartial('footer', templates['common/footer.html']);
+		Handlebars.registerPartial('wpo', '');
 		Handlebars.registerPartial('product_grid_api', templates['common/productGrid.html']);
+		Handlebars.registerPartial('basketItem', templates['my/basketItem.html']);
 		
 		return templates;
 	}

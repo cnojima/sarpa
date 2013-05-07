@@ -21,6 +21,34 @@ SM.controller.Basket = (function() {
 		console.log('@updateBasketCount'); 
 		$('.header-basket .item-count').html(getBasketCount());
 	}
+
+
+	/**
+	 * tells view to render basket
+	 */
+	function showBasket() {
+		// instantiate if not drawn
+		if(gel('basket') === null) {
+			var t = Handlebars.compile(SM.templates['my/basket.html']);
+
+			contents = [];
+			for(var k in basket.getContents()) {
+				contents.push(basket.getContents()[k]);
+			}
+
+			$(document.body).append(t({
+				basket : {
+					total : '80080.00',
+					contents : contents
+				}
+			}));
+		}
+
+
+		$('webview').addClass('off-canvas-right-main');
+	}
+
+
 	
 	/**
 	 * buttons
@@ -29,12 +57,16 @@ SM.controller.Basket = (function() {
 		SM.search.getFocusProduct(basket.addItem);
 		alert('item added to basket - think fancy overlay or something');
 	});
+	$('#checkout').on('click', function(e) {
+		window.location = '/my/review';
+	});
 	
 	$(window).bind('basketUpdated', updateBasketCount);
 
 	return {
-		getBasketCount	: getBasketCount,
-		getBasketItems : getBasketItems,
-		updateBasketCount			: updateBasketCount
+		getBasketCount			: getBasketCount,
+		getBasketItems			: getBasketItems,
+		showBasket				: showBasket,
+		updateBasketCount		: updateBasketCount
 	}
 })();

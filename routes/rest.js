@@ -109,7 +109,7 @@ module.exports = function(req, res) {
 		
 			case 'product':
 				if(restPath[3] != '') {
-					api.rest_getProduct('/services/product/' + restPath[3], deliverProduct);
+					api.rest_getProduct(restPath[3], deliverProduct);
 				} else {
 					throw new Error('cannot fetch product without rest url');
 				}

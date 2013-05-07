@@ -1,23 +1,51 @@
-{{> header}} 
-<div class="bigbigbasket">
-	<div class="shopping-basket basket">
-<!-- 			<div id="breadcrumbs">
-			<ul class="breadcrumb" role="navigation">
-				<li><a href="/">home</a></li>
-				<li>my basket </li>
-			</ul>
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<title>
+		{{title}} [ {{mode}} mode ]
+	</title>
+{{#if isProduction}}
+	<link rel="stylesheet" type="text/css" href="/css/sephora.css" />
+{{else}}
+	<link rel="stylesheet" type="text/css" href="/css/tom_base.css" />
+	<link rel="stylesheet" type="text/css" href="/css/tom.css" />
+	<link rel="stylesheet" type="text/css" href="/css/css3.css" />
+	<link rel="stylesheet" type="text/css" href="/css/search.css" />
+{{/if}}
+</head>
+<body onload="setTimeout(function(){window.scrollTo(0,1);}, 100);">
+
+<div id="mWrapper">
+
+
+<!-- <div id="basket" class="x-panel fixed-buffer anim-base off-canvas-right"> -->
+<div id="basket" class="fixed-buffer">
+	<header class="basket">
+		<div class="row topnav">
+			<grid class="col-small-span-8">
+				<h1>Basket</h1>
+			</grid>
+			<grid class="col-small-span-4">
+				<button class="btn btn-alt btn-mini btn-show-text basket-edit-button {{customRightNav}}">Edit</button>
+			</grid>
 		</div>
--->			<div class="calculation container">
-			<div class="total-row subtotal container">
-				<div class="label">
-					Order Total
-				</div>
-				<div class="value">
-					<span class="sub">{{basket.total}}</span> 
-				</div>
-			</div>
+		<div class="row subnav">
+			<grid class="col-small-span-4">
+				<h4>{{basket.itemCount}} Items</h4>
+			</grid>
+			<grid class="col-small-span-8">
+				<h4>Subtotal: <span class="super-emphasize">{{basket.total}}</span></h4>
+			</grid>
 		</div>
+	</header>
+
+	<div class="row shipping-banner">
+		<h5>Spend ${{basket.deltaToFreeShipping}} or more for <strong>free shipping!</strong></h5>
 	</div>
+
 	<div class="basket-contents">
 		<div class="basket-items">
 			{{#each basket.contents}}
@@ -26,28 +54,18 @@
 		</div>
 	</div>
 
-	<div class="update-and-total basket-actions">
-		<div class="basket-totals">
-			<a href="#" class="pop-info" rel="#pop-shipping">shipping information <i class="arrow-mini arrow-right"></i></a>
-			<div class="total-row subtotal container">
-				<div class="label">
-					Order Total
-				</div>
-				<div class="value">
-					<span class="sub">{{basket.total}}</span> 
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="cart-controls basket-actions">
-		<a class="btn btn-large btn-border btn-block btn-shop" href="/shop"><i class="arrow-mini arrow-left"></i> continue shopping</a> 
-		
-		<a href="/my/review" class="btn-big-red btn-checkout">checkout</a>
-		
-		<button class="canada-checkout" value="canada" name="canada"></button> 
-	</div>
+	<footer class="basket fixed-bottom">
+		<section class="row">
+			<a href="javascript:;">Add Free Samples</a>
+		</section>
+		<section>
+			<button class="btn btn-primary btn-block" id="checkout">checkout</button>
+		</section>
+	</footer>
 </div>
+
+
+
 
 
 

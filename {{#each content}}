@@ -1,0 +1,9 @@
+{{#each content}}
+  {{#if this.type == 'skugrid'}}
+    {{> skugrid this}}
+  {{elseif this.type == 'carousel'}}
+    {{> carousel this}}
+  {{elseif this.type == 'imageComponent'}}
+    {{> imageComponent this}}
+  {{/if}}
+{{/each}}

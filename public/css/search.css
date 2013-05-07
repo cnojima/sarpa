@@ -3,13 +3,20 @@
 	top								: 32px;
 	width							: 100%;
 	padding							: 5px 0;
+	z-index: 10;	
+}
+.search-wrapper button {
+	position: absolute;
+	top: 0;
+	right: 10px;
 }
 
 search input {
+	margin : 0 !important;
 	height: 25px !important;
 	line-height: 25px !important;
 	border:1px solid #ccc;
-	width: auto;
+	/*width: auto;*/
 }
 search input.site-search-field {
 }

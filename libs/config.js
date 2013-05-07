@@ -1,6 +1,6 @@
 module.exports = {
-	mode					: 'development', /* development : production */
-	templateEngine			: 'handlebars', /* console.log(cons) for full support list */
+	mode							: (process.env.NODE_ENV) ? process.env.NODE_ENV : 'development',
+	templateEngine		: 'handlebars', /* console.log(cons) for full support list */
 	
 	/*mongoDB */
 	mongoHost				: 'localhost',

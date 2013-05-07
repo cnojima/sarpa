@@ -1,0 +1,31 @@
+.anim-base {
+	-webkit-transition-duration : 350ms;
+	-moz-transition-duration : 350ms;
+}
+.transition-main {
+	-webkit-transform : translate3d(0, 0, 0) !important;
+	-moz-transform : translate3d(0, 0, 0) !important;
+}
+.transition-left {
+	-webkit-transform : translate3d(-100%, 0, 0) !important;
+	-moz-transform : translate3d(-100%, 0, 0) !important;
+}
+.transition-right {
+	-webkit-transform : translate3d(100%, 0, 0) !important;
+	-moz-transform : translate3d(100%, 0, 0) !important;
+}
+.off-canvas-right {
+	-webkit-transform : translate3d(90%, 0, 0) !important;
+	-moz-transform : translate3d(90%, 0, 0) !important;
+}
+.off-canvas-right-main {
+	-webkit-transform : translate3d(-90%, 0, 0) !important;
+	-moz-transform : translate3d(-90%, 0, 0) !important;
+}
+
+.x-panel {
+	/*display: none;*/
+}
+#base.x-panel {
+	display: block;
+}

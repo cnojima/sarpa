@@ -30,6 +30,7 @@ function test(err, req, res, next) {
 
 
 app.configure(function(){
+	app.set('env', config.mode);
 	app.engine('html', cons[config.templateEngine]);
 	app.set('name', 'SARPA')
 	app.set('port', process.env.PORT || 3000);
@@ -74,7 +75,7 @@ app.get('/test', routes.test);
 global.app = app;
 
 var server = http.createServer(app).listen(app.get('port'), function(){
-	console.log("Express server [ " + app.get('name') + " ] listening on port " + app.get('port'));
+	console.log("Express server [ " + app.get('name') + " ] listening on port " + app.get('port') + " - in [ " + global.app.get('env') + " ] mode");
 });
 
 /*** socket server ***/

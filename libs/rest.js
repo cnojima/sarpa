@@ -10,7 +10,8 @@ var http = require('http'),
 	restHost = 'qa.sephora.com',
 	
 	restPort = '80',
-	restEndpoint = '/services/',
+	//restEndpoint = '/services/',
+	restEndpoint = '/v1/',
 	restEndpointRoot = ['http://' , restHost , ':' , restPort , restEndpoint ].join(''),
 	restTimeout = 5000;
 
@@ -96,7 +97,8 @@ module.exports = {
 	 */
 	rest_getChildCategories : function(catId, callback) {
 		var content, cfg = {},
-			endpoint = 'category',
+			//endpoint = 'category',
+			endpoint = 'categories',
 			categories = [];
 
 		/**
@@ -154,7 +156,8 @@ module.exports = {
 	 */
 	rest_getCategoryProducts : function rest_getCategoryProducts(catId, filters, callback) {
 		var cfg = {},
-			endpoint = 'category',
+			//endpoint = 'category',
+			endpoint = 'categories',
 			path = [ endpoint, '/', catId , '/', 'products' ];
 		
 		function handleProducts(res) {
@@ -194,13 +197,14 @@ module.exports = {
 	},
 	
 	
-	rest_getProduct : function rest_getProduct(url, cb) {
-		var cfg = {};
+	rest_getProduct : function rest_getProduct(pid, cb) {
+		var cfg = {}, path = [ 'products/', pid ]
+			url = path.join('');
 		cfg.extend( (useProxy) ? proxyConfig : directConfig );
 
 		console.log('@rest_getProduct - using url [ ' + url + ' ]');
 		
-		cfg.path = url;
+		cfg.path += url;
 		
 		function handleProduct(res) {
 			
@@ -224,7 +228,7 @@ module.exports = {
 		var cfg = {};
 		cfg.extend( (useProxy) ? proxyConfig : directConfig );
 		
-		cfg.path += 'sku/' + skuId;
+		cfg.path += 'catalog/skus/' + skuId;
 		
 		function handleSku(res) {
 			function handleEnd(dataChunked) {

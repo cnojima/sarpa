@@ -5,7 +5,7 @@ module.exports = function(req, res) {
 	api = require('../libs/rest.js'),
 	productId = (req.params.pId) ? req.params.pId : '';
 	
-	api.rest_getProduct('/services/product/' + productId, function(meta) {
+	api.rest_getProduct(productId, function(meta) {
 
 		res.render('product', { 
 			title			: 'products',

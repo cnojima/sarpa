@@ -1,8 +1,7 @@
 
 {{#if isProduction}}
-	<script type="text/javascript" src="js/all.js"></script>
+	<script type="text/javascript" src="js/sarpa.min.js"></script>
 {{else}}
-	<!-- <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script> -->
 	<script type="text/javascript" src="/js/support/zepto.js"></script>
 	<script src="/js/support/jstorage.min.js"></script>
 	<script src="/js/support/handlebars-1.0.rc.1.min.js"></script>
@@ -31,4 +30,4 @@
 	<!-- END: DEV ONLY -->
 {{/if}}
 	
-<iframe onload="SM.templatesLoaded();" name="hbs_templates" id="hbs_templates" src="/rest/hbs?templates=category/menu.html,common/productGrid.html,search/grid.html,common/productDetail.html" style="display:none;"></iframe>
+<iframe onload="SM.templatesLoaded();" name="hbs_templates" id="hbs_templates" src="/rest/hbs?templates=category/menu.html,common/productGrid.html,search/grid.html,common/productDetail.html,common/footer.html,my/basket.html,my/basketItem.html" style="display:none;"></iframe>
